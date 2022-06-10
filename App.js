@@ -9,8 +9,8 @@ import PictureThree from "./src/screens/03Picture/picture.three.screen";
 import HomeScreen from "./src/screens/00Home/home.screen";
 import Navigation from "./src/Navigation";
 
-export default class App extends Component() {
-  render() {
+export default function App() {
+  {
     return <Navigation />;
   }
 }
