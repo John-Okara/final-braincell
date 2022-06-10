@@ -10,14 +10,16 @@ import {
 import styles from "./picture.three.style";
 import theme from "../../resources/Theme/theme";
 
-function HomeScreen() {
+function PictureThree() {
   return (
     <View
       style={[styles.mainContainer, { backgroundColor: theme.WHITE_COLOR }]}
     >
-      <Text>Henlo</Text>
+      <Image
+        source={require("../../resources/img/03GlassesSmiley.jpg")}
+      ></Image>
     </View>
   );
 }
 
-export default HomeScreen;
+export default PictureThree;
