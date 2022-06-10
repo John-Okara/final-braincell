@@ -1,17 +1,28 @@
-import { StyleSheet, Text, View, Button, TextInput } from "react-native-web";
+import React from "react";
+import { SafeAreaView, StyleSheet, TextInput } from "react-native";
 
-const dummyComponen = () => {
+const InputStuff = () => {
+  const [text, onChangeText] = React.useState(null);
+
   return (
-    <View>
-      <View>
-        <TextInput placeholder="write some stuff" />
-        <Button title="Add this stuff" />
-      </View>
-      <View>
-        <Text>Random stuff</Text>
-      </View>
-    </View>
+    <SafeAreaView>
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeText}
+        value={text}
+        placeholder="write some stuff"
+      />
+    </SafeAreaView>
   );
 };
 
-export default dummyComponen;
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+});
+
+export default InputStuff;

@@ -6,17 +6,22 @@ import {
   StatusBar,
   ActivityIndicator,
 } from "react-native";
-
 import styles from "./picture.three.style";
 import theme from "../../resources/Theme/theme";
+import InputStuff from "../../Components/component/dummy.component";
 
 function HomeScreen() {
   return (
-    <View
-      style={[styles.mainContainer, { backgroundColor: theme.WHITE_COLOR }]}
-    >
-      <Text>Henlo</Text>
-    </View>
+    <>
+      <InputStuff />
+      <View
+        style={[styles.mainContainer, { backgroundColor: theme.WHITE_COLOR }]}
+      >
+        <Image
+          source={require("../../resources/img/03GlassesSmiley.jpg")}
+        ></Image>
+      </View>
+    </>
   );
 }
 
