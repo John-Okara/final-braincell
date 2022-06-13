@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, TextInput } from "react-native";
+import { SafeAreaView, StyleSheet, TextInput, Button } from "react-native";
 
 const InputStuff = () => {
   const [text, onChangeText] = React.useState(null);
@@ -12,6 +12,7 @@ const InputStuff = () => {
         value={text}
         placeholder="write some stuff"
       />
+      <Button title="Do it" />
     </SafeAreaView>
   );
 };
