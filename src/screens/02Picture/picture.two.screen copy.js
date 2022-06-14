@@ -24,10 +24,10 @@ const InputStuff = () => {
   }
 
   return (
-    <View style={styles.appContainer}>
+    <View style={styles.cartContainer}>
       <View style={styles.inputContainer}>
         <TextInput
-          style={styles.input}
+          style={styles.textInput}
           onChangeText={listInputHandler}
           placeholder="write some stuff"
         />
@@ -50,13 +50,30 @@ const InputStuff = () => {
 };
 
 const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    margin: 12,
+  cartContainer: {
+    flex: 1,
+    paddingHorizontal: 16,
+    padding: 50,
+  },
+  inputContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 24,
+    padding: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: "#cccccc",
+  },
+  textInput: {
     borderWidth: 1,
-    padding: 10,
+    borderColor: "#cccccc",
+    width: "70%",
+    margin: 8,
+    padding: 8,
   },
   foodStyle: {
+    flex: 3,
     margin: 8,
     padding: 8,
     borderRadius: 6,
