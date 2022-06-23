@@ -21,5 +21,6 @@ function PictureOne() {
     </View>
   );
 }
+// funktion zur Darstellung eines Image
 
 export default PictureOne;

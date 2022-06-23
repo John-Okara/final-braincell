@@ -6,9 +6,11 @@ import {
   StatusBar,
   ActivityIndicator,
 } from "react-native";
+// Imports von react und react native
 
 import styles from "./home.style";
 import theme from "../../resources/Theme/theme";
+// Imports von Dateien aus anderen Unterordnern
 
 function HomeScreen() {
   return (
@@ -19,5 +21,6 @@ function HomeScreen() {
     </View>
   );
 }
+// Funktion zur Darstellung einer Textausgabe
 
 export default HomeScreen;

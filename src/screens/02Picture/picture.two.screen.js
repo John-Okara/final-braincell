@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -11,36 +11,42 @@ import {
   FlatList,
 } from "react-native";
 
+import FoodItem from "../../Components/component/Food.Item";
+import FoodInput from "../../Components/component/Food.input";
+// Imports von Komponenten, die dann später mit eingebaut werden.
+
 const InputStuff = () => {
-  const [enteredListText, setEnteredListText] = React.useState("");
   const [foodList, setFoodList] = useState([]);
+  //Was genau ist das?
 
-  function listInputHandler(enteredText) {
-    setEnteredListText(enteredText);
+  function addList(enteredListText) {
+    setFoodList((currentFoodList) => [
+      ...currentFoodList,
+      { text: enteredListText, id: Math.random().toString() },
+    ]);
   }
+  // Funktion zum hinzufügen eines Textes
 
-  function addList() {
-    setFoodList((currentFoodList) => [...currentFoodList, enteredListText]);
+  function deleteFoodHandler(id) {
+    setFoodList((currentFoodList) => {
+      return currentFoodList.filter((food) => food.id !== id);
+    });
   }
+  // Funktion zum löschen des hinzugefügten Textes
 
   return (
-    <View style={styles.appContainer}>
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          onChangeText={listInputHandler}
-          placeholder="write some stuff"
-        />
-        <Button title="Do it" onPress={addList} />
-      </View>
-      <View>
+    <View>
+      <FoodInput onAddFood={addList} />
+      <View style={styles.cartContainer}>
         <FlatList
           data={foodList}
           renderItem={(itemData) => {
             return (
-              <View style={styles.foodStyle}>
-                <Text style={styles.foodText}>{itemData.item}</Text>
-              </View>
+              <FoodItem
+                id={itemData.item.id}
+                text={itemData.item.text}
+                onDeleteItem={deleteFoodHandler}
+              />
             );
           }}
         />
@@ -48,22 +54,13 @@ const InputStuff = () => {
     </View>
   );
 };
+// Quasi "Hauptfunktion", fügt die anderen Funktionen zusammen
 
 const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-  },
-  foodStyle: {
-    margin: 8,
-    padding: 8,
-    borderRadius: 6,
-    backgroundColor: "#5e0acc",
-  },
-  foodText: {
-    color: "white",
+  cartContainer: {
+    //flex: 1,
+    paddingHorizontal: 16,
+    padding: 50,
   },
 });
 

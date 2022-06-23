@@ -46,6 +46,8 @@ const DataFoodlist = [
     title: "Boglonese",
   },
 ];
+// Liste mit Daten
+
 function PictureThree() {
   const renderItem = ({ item }) => <Item title={item.title} />;
   return (
@@ -64,5 +66,6 @@ function PictureThree() {
     </>
   );
 }
+// Funktion zur Darstellung der Daten
 
 export default PictureThree;
