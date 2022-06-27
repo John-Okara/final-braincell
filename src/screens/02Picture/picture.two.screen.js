@@ -46,6 +46,7 @@ const InputStuff = () => {
                 id={itemData.item.id}
                 text={itemData.item.text}
                 onDeleteItem={deleteFoodHandler}
+                key={foodList.id}
               />
             );
           }}

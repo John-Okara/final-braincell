@@ -1,10 +1,20 @@
-import { StyleSheet, View, Text, Pressable } from "react-native";
+import React from "react";
+import { StyleSheet, View, Text, Pressable, Button } from "react-native";
+import * as Icon from "@expo/vector-icons";
 
 function FoodItem(props) {
   return (
-    <Pressable onPress={props.onDeleteItem.bind(this, props.id)}>
+    <Pressable>
       <View style={styles.foodStyle}>
-        <Text style={styles.foodText}>{props.text}</Text>
+        <Text style={styles.foodText}>
+          {props.text}
+          <Icon.AntDesign
+            name="delete"
+            size={30}
+            color="#e33057"
+            onPress={props.onDeleteItem.bind(this, props.id)}
+          />
+        </Text>
       </View>
     </Pressable>
   );
@@ -22,5 +32,9 @@ const styles = StyleSheet.create({
   },
   foodText: {
     color: "white",
+  },
+  buttonContainer: {
+    marginVertical: 10,
+    marginHorizontal: 10,
   },
 });
