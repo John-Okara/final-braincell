@@ -4,19 +4,17 @@ import * as Icon from "@expo/vector-icons";
 
 function FoodItem(props) {
   return (
-    <Pressable>
-      <View style={styles.foodStyle}>
-        <Text style={styles.foodText}>
-          {props.text}
-          <Icon.AntDesign
-            name="delete"
-            size={30}
-            color="#e33057"
-            onPress={props.onDeleteItem.bind(this, props.id)}
-          />
-        </Text>
+    <View style={styles.foodStyle}>
+      <Text style={styles.foodText}>{props.text}</Text>
+      <View style={styles.iconStyle}>
+        <Icon.AntDesign
+          name="delete"
+          size={30}
+          color="#e33057"
+          onPress={props.onDeleteItem.bind(this, props.id)}
+        />
       </View>
-    </Pressable>
+    </View>
   );
 }
 // Darstellung eines eingegebenen Textes, inkl. Pressable
@@ -25,16 +23,18 @@ export default FoodItem;
 
 const styles = StyleSheet.create({
   foodStyle: {
-    margin: 4,
-    padding: 8,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    padding: 7,
     borderRadius: 9,
+    marginBottom: 3,
     backgroundColor: "#5e0acc",
+    alignItems: "center",
   },
   foodText: {
     color: "white",
   },
-  buttonContainer: {
-    marginVertical: 10,
-    marginHorizontal: 10,
+  iconStyle: {
+    alignSelf: "flex-end",
   },
 });
